@@ -321,6 +321,12 @@
       const scriptURL = 'https://script.google.com/macros/s/AKfycbxbNGulMV87GZx14lejrDvgyISPdoDaPomB-StKNcIQ6yUHSNOIHKK4wXtPvfJavn1I/exec';
 
       window.onload = function() {
+        // Add this at the beginning of window.onload
+        if (performance.navigation.type === 2) {
+          window.location.replace('index.html');
+          return;
+        }
+        
         const urlParams = new URLSearchParams(window.location.search);
         datosUsuario = {
           tipo: urlParams.get('tipo') || 'No especificado',
@@ -456,8 +462,15 @@
             </div>
           `;
           document.getElementById("progressBar").style.width = "100%";
+          // Add this line to prevent going back
+          window.history.pushState(null, '', 'index.html');
         }
       }
+
+      // Add this new event listener at the end of your script
+      window.addEventListener('popstate', function(event) {
+        window.location.replace('index.html');
+      });
 
       function mostrarModal() {
         document.getElementById("modalConfirmacion").style.display = "flex";
