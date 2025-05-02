@@ -1,0 +1,1007 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botones */
+.btn-action, .btn-primary, .btn-secondary, .btn-danger {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-action, .btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-action:hover, .btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+}
+
+.btn-secondary:hover {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Sección de filtros */
+.filters-section {
+    margin-bottom: 20px;
+}
+
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.search-group {
+    flex-grow: 1;
+}
+
+.filter-group label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.filter-group select, .filter-group input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.filter-group select:focus, .filter-group input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Tabla de inventario */
+.inventory-section {
+    margin-bottom: 30px;    
+}
+
+.inventory-section th {
+    background-color: #2281e1 !important;
+    color: white !important;
+    text-align: center !important;
+}
+
+
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.table-container td:first-child {
+    text-align: left;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventory-table th, .inventory-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.inventory-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.inventory-table tr:hover {
+    background-color: #f5f7fa;
+}
+
+.inventory-table th.sort-asc::after {
+    content: " ▲";
+    font-size: 12px;
+}
+
+.inventory-table th.sort-desc::after {
+    content: " ▼";
+    font-size: 12px;
+}
+
+/* Filas de detalles */
+.details-row {
+    display: none;
+    background-color: #f8f9fa;
+}
+
+.details-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+    justify-content: space-around; /* Distribuir elementos uniformemente */
+    width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    flex: 1 1 18%; /* Cada elemento ocupa aproximadamente 1/5 del espacio, con capacidad de crecer y encogerse */
+    margin-bottom: 10px; /* Espacio entre filas */
+    background-color: #f0f8ff; /* Fondo azul muy claro */
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.detail-label {
+    font-size: 12px;
+    color: #2c3e50; /* Azul oscuro para las etiquetas */
+    margin-bottom: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    font-weight: 500;
+    color: #3498db; /* Azul para los valores */
+    font-size: 14px;
+}
+
+/* Acciones en la tabla */
+.item-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.view-btn {
+    color: #3498db;
+}
+
+.view-btn:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.edit-btn {
+    color: #f39c12;
+}
+
+.edit-btn:hover {
+    background-color: rgba(243, 156, 18, 0.1);
+}
+
+.delete-btn {
+    color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Badges de estado */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-inactive {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* Mensaje de no resultados */
+.no-results {
+    display: none;
+    padding: 30px;
+    text-align: center;
+    color: #7f8c8d;
+}
+
+/*
+==================================
+MODAL EDITAR ARTICULO
+==================================
+*/
+
+/* Estilos para el modal de artículos mejorado */
+
+/* Estructura básica del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 600px;
+    animation: modalFadeIn 0.3s ease-out;
+    overflow: hidden;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos del encabezado del modal */
+.modal-header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+}
+
+.modal-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.close {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* Información del encabezado */
+.modal-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.modal-responsable {
+    font-size: 14px;
+    color: #666;
+}
+
+.modal-status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-status-badge.ACTIVO {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.modal-status-badge.INACTIVO {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Contenedor del item con diseño mejorado */
+.item-container {
+    position: relative;
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+    min-height: 60px; 
+}
+
+.item-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    padding: 0 40px;
+    display: inline-block;
+    max-width: 80%;
+    word-break: break-word;
+}
+
+.edit-item-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    cursor: pointer;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f1f3f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 1; /* Asegura que esté por encima */
+}
+
+.edit-item-icon:hover {
+    background-color: #e2e6ea;
+    color: #495057;
+}
+
+/* Diseño del cuerpo del modal */
+.modal-body {
+    padding: 20px;
+}
+
+/* Secciones del formulario */
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-divider {
+    height: 1px;
+    background-color: #e9ecef;
+    margin: 20px 0;
+}
+
+/* Campos de formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Campo requerido */
+.required-field label::after {
+    content: " *";
+    color: #dc3545;
+}
+
+/* Contenedor para campos min-max */
+.min-max-container {
+    display: flex;
+    gap: 15px;
+}
+
+.min-max-container .form-group {
+    flex: 1;
+}
+
+/* Botones de acción */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+    margin-top: 20px;
+}
+
+.btn-secondary,
+.btn-primary {
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-secondary {
+    background-color: #e2e6ea;
+    color: #495057;
+}
+
+.btn-secondary:hover {
+    background-color: #dae0e5;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+}
+
+.btn-primary i {
+    margin-right: 5px;
+}
+
+/* Estado de edición del nombre del ítem */
+.item-name-edit {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    z-index: 2; /* Por encima del botón */
+}
+
+.item-name-edit input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* == FIN DE MODAL EDITAR ARTICULO == */
+
+/* Estilos para campos con valores preexistentes en modo edición */
+.form-group input.has-value, 
+.form-group select.has-value {
+    background-color: #f0f7ff;
+    border-color: #2281e1;
+}
+
+/* Loader */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Animaciones */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para el panel lateral */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #2c3e50;
+    color: #fff;
+    z-index: 999;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-overlay.open {
+    display: block;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 997;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #34495e;
+}
+
+.sidebar-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.restaurant-name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.user-name {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+}
+
+.sidebar-menu {
+    flex: 1;
+    padding: 20px 0;
+    overflow-y: auto;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active {
+    background: #34495e;
+    color: #3498db;
+}
+
+.sidebar-menu i {
+    margin-right: 10px;
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #34495e;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+.logout-btn i {
+    margin-right: 10px;
+}
+
+body {
+    transition: padding-left 0.3s ease;
+    position: relative;
+}
+
+body.sidebar-open {
+    padding-left: 0; 
+}
+
+.main-content {
+    width: 100%;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    position: relative;
+    left: 0; 
+}
+
+
+body {
+    position: relative;
+    overflow-x: hidden; 
+}
+
+body.sidebar-open {
+    padding-left: 0;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    left: 0;
+    transition: none;
+}
+
+.main-content.shifted {
+    width: 100%;
+    margin-left: 0;
+    left: 0;
+    transform: none; 
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #2c3e50;
+    color: #fff;
+    z-index: 999;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sidebar-toggle {
+    transition: none; 
+}
+
+@media (min-width: 992px) {
+    body.sidebar-open {
+        padding-left: 0;
+    }
+    
+    .main-content.shifted {
+        width: 100%;
+        margin-left: 0;
+        transform: none;
+    }
+    
+    /* Fix the toggle button position */
+    .sidebar.open ~ .sidebar-toggle {
+        left: 15px; /* Keep toggle button in original position */
+    }
+}
+
+@media (max-width: 991px) {
+    .main-content.shifted {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    /* Ensure content doesn't overflow on mobile when sidebar is open */
+    body.sidebar-open .main-content {
+        overflow-x: hidden;
+    }
+}
+
+/* Ensure tables are responsive */
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.inventory-table {
+    min-width: 800px; /* Ensure table has a minimum width */
+}
+
+/* Adjust sidebar overlay to cover content without moving it */
+.sidebar-overlay.open {
+    display: block;
+    z-index: 998;
+}
+
+/* Modal de éxito animado */
+.success-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 25px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+    text-align: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.success-modal.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.success-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: successPulse 1.5s infinite;
+}
+
+.success-message {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.success-details {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.success-modal .btn-close {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.success-modal .btn-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Animación del icono de éxito */
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animación del checkmark */
+.checkmark-circle {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 15px;
+}
+
+.checkmark-circle .background {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #27ae60;
+    position: absolute;
+}
+
+.checkmark-circle .checkmark {
+    border-radius: 5px;
+}
+
+.checkmark-circle .checkmark.draw:after {
+    animation-delay: 0.3s;
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    animation-name: checkmark;
+    transform: scaleX(-1) rotate(135deg);
+    animation-fill-mode: forwards;
+}
+
+.checkmark-circle .checkmark:after {
+    opacity: 0;
+    height: 40px;
+    width: 20px;
+    transform-origin: left top;
+    border-right: 7px solid white;
+    border-top: 7px solid white;
+    border-radius: 2px !important;
+    content: '';
+    left: 25px;
+    top: 45px;
+    position: absolute;
+}
+
+@keyframes checkmark {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    40% {
+        height: 0;
+        width: 20px;
+        opacity: 1;
+    }
+    100% {
+        height: 40px;
+        width: 20px;
+        opacity: 1;
+    }
+}
