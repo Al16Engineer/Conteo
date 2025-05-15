@@ -1,0 +1,605 @@
+:root {
+    --primary-color: #4a86e8;
+    --primary-hover: #3a76d8;
+    --text-color: #333;
+    --light-bg: #f7f9fc;
+    --border-radius: 8px;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    padding: 20px 15px;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  .container {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease-out;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .encabezado {
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--primary-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .encabezado strong {
+    color: var(--primary-color);
+    display: inline-block;
+    width: 100px;
+  }
+  
+  .item-box {
+    margin-top: 20px;
+    padding: 20px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    background-color: white;
+    transition: box-shadow 0.3s;
+  }
+  
+  .item-box:hover {
+    box-shadow: var(--shadow);
+  }
+  
+  h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    word-break: break-word;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    appearance: none;
+    touch-action: manipulation;
+  }
+  
+  input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 134, 232, 0.2);
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    appearance: none;
+    touch-action: manipulation;
+  }
+  
+  button:hover {
+    background-color: var(--primary-hover);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .success-message {
+    text-align: center;
+    padding: 20px 10px;
+  }
+  
+  .success-message h3 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+  }
+  
+  .success-button {
+    background-color: #4CAF50;
+    margin-top: 20px;
+    padding: 14px;
+  }
+  
+  .success-button:hover {
+    background-color: #3d9c40;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .progress-container {
+    margin: 15px 0 20px 0;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  
+  /* Modal styles */
+  #modalConfirmacion,
+  #modalConfirmarCantidad,
+  #modalError,
+  #modalInventarioExistente {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-contenido {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .modal-contenido p {
+    margin-bottom: 20px;
+  }
+  
+  .modal-botones {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .modal-botones button {
+    flex: 1;
+  }
+  
+  .cancelar {
+    background-color: #e74c3c;
+  }
+  
+  .cancelar:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Error message styles */
+  .error-message {
+    background: #fff8f8;
+    border-left: 4px solid #ff5252;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  
+  .error-message h3 {
+    color: #ff5252;
+    margin-top: 0;
+  }
+  
+  .error-message p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  /* Specific styles for inventario existente modal */
+  #modalInventarioExistente .modal-contenido {
+    background-color: #fffbf0;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(243, 156, 18, 0.15);
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    width: 95%;
+    max-width: 450px; /* Increased from 400px for more space */
+  }
+  
+  #modalInventarioExistente .modal-contenido::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #f39c12, #f1c40f);
+  }
+  
+  #modalInventarioExistente .modal-logo {
+    width: 200px; /* Increased from 180px */
+    height: auto;
+    margin: 0 auto 15px;
+    display: block;
+    }
+    
+    /* Also updating the mobile version */
+    @media screen and (max-width: 480px) {
+    #modalInventarioExistente .modal-logo {
+    width: 150px; /* Increased from 100px */
+    margin-bottom: 10px;
+    }
+    }
+  
+    #modalInventarioExistente .error-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+      display: block;
+      color: #e67e22;
+    }
+    
+    #modalInventarioExistente h3 {
+      color: #e67e22;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    #modalInventarioExistente p {
+      color: #7f8c8d;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      text-align: center; /* Changed back to center alignment */
+    }
+    
+    /* Mobile optimizations */
+    @media screen and (max-width: 480px) {
+      #modalInventarioExistente .modal-contenido {
+        padding: 20px 15px;
+        width: 92%;
+        max-width: 380px; /* Increased for better readability */
+      }
+      
+      #modalInventarioExistente .modal-logo {
+        width: 160px;
+        margin-bottom: 15px;
+      }
+      
+      #modalInventarioExistente .error-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+      }
+      
+      #modalInventarioExistente h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
+      
+      #modalInventarioExistente p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        text-align: center; /* Changed to center alignment */
+      }
+      
+      #modalInventarioExistente p strong {
+        display: inline-block;
+        margin-right: 5px;
+      }
+      
+      #modalInventarioExistente .btn-primary {
+        padding: 12px 24px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 220px;
+      }
+    }
+    
+    /* For very small screens */
+    @media screen and (max-width: 360px) {
+      #modalInventarioExistente .modal-contenido {
+        padding: 18px 14px;
+      }
+      
+      #modalInventarioExistente .modal-logo {
+        width: 140px; /* Increased from previous size */
+      }
+      
+      #modalInventarioExistente p {
+        font-size: 0.9rem; /* Slightly larger than before */
+      }
+    }
+    
+    #modalInventarioExistente .button-group {
+      margin-top: 20px;
+    }
+    
+    #modalInventarioExistente .btn-primary {
+      background: linear-gradient(to right, #e67e22, #f39c12);
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    #modalInventarioExistente .btn-primary:hover {
+      background: linear-gradient(to right, #d35400, #e67e22);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(230, 126, 34, 0.4);
+    }
+    
+    #modalInventarioExistente .btn-primary:active {
+      transform: translateY(0);
+    }
+    
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        padding: 15px 12px;
+        width: 95%;
+      }
+      
+      .encabezado {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+      
+      .encabezado strong {
+        width: 90px;
+      }
+      
+      .item-box {
+        padding: 15px 12px;
+      }
+      
+      h3 {
+        font-size: 1.1rem;
+      }
+      
+      /* Modal adjustments for mobile */
+      .modal-contenido {
+        padding: 20px 15px;
+        width: 95%;
+        max-width: 350px;
+      }
+      
+      .modal-botones {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .modal-botones button {
+        width: 100%;
+        padding: 12px;
+      }
+      
+      /* Error message adjustments */
+      .error-message.inventario-existente {
+        padding: 20px 15px;
+        margin: 10px 5px;
+        width: 100%;
+      }
+      
+      .error-message.inventario-existente .error-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      
+      .error-message.inventario-existente h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+      }
+      
+      .error-message.inventario-existente p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+      
+      .error-message.inventario-existente br {
+        display: inline;
+        content: " ";
+      }
+      
+      .error-message.inventario-existente br:after {
+        content: " ";
+      }
+      
+      .error-message.inventario-existente .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+      }
+      
+      /* Logo and header layout */
+      .encabezado-flex {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+      
+      .info-text {
+        width: 100%;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      
+      .info-text div {
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 6px;
+      }
+      
+      .logo-container {
+        margin: 0 auto 10px;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .sede-logo {
+        max-width: 120px;
+        margin: 0 auto;
+      }
+      
+      /* Input and button adjustments */
+      input[type="number"] {
+        padding: 10px;
+        font-size: 16px; /* Keep font size 16px to prevent zoom on iOS */
+      }
+      
+      button {
+        padding: 12px;
+        font-size: 0.95rem;
+      }
+    }
+    
+    /* For very small screens */
+    @media screen and (max-width: 360px) {
+      body {
+        padding: 8px;
+      }
+      
+      .container {
+        padding: 12px 10px;
+      }
+      
+      .encabezado {
+        padding: 10px;
+        font-size: 0.85rem;
+      }
+      
+      .info-text div {
+        grid-template-columns: 90px 1fr;
+      }
+      
+      .error-message.inventario-existente {
+        padding: 15px 12px;
+      }
+      
+      .error-message.inventario-existente .error-icon {
+        font-size: 32px;
+      }
+      
+      .error-message.inventario-existente h3 {
+        font-size: 1rem;
+      }
+      
+      .error-message.inventario-existente p {
+        font-size: 0.8rem;
+      }
+      
+      .error-message.inventario-existente .btn-primary {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+    }
+    
+    /* Safari full height fix */
+    @supports (-webkit-touch-callout: none) {
+      html, body {
+        height: -webkit-fill-available;
+      }
+      
+      input, button {
+        font-size: 16px;
+      }
+    }
+    
+    /* Logo */
+    .encabezado-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .info-text {
+      flex: 1;
+    }
+    
+    .logo-container {
+      margin-left: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    
+    .sede-logo {
+      max-width: 150px;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto 10px;
+      display: block;
+    }
+    
+    /* Loading Spinner */
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      margin: 20px auto;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid var(--primary-color);
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="icon" type="image/png" href="img/logoSR.png">
+    <title>Sistema de Inventario</title>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/formulario.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="encabezado" id="info"></div>
+
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="item-box">
+        <h3 id="itemNombre">Cargando ítem...</h3>
+        <form id="formulario" onsubmit="guardarCantidad(event)">
+          <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" placeholder="Ingrese la cantidad" min="0" inputmode="numeric" required>
+          </div>
+          <button type="submit" id="btnGuardar">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="modalConfirmacion">
+      <div class="modal-contenido">
+        <p>¿Estás seguro de que deseas volver al inicio? Se iniciará un nuevo registro.</p>
+        <div class="modal-botones">
+          <button onclick="confirmarVolver()">Sí, volver</button>
+          <button class="cancelar" onclick="cerrarModal()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- New modal for quantity confirmation -->
+    <div id="modalConfirmarCantidad" style="display: none;">
+      <div class="modal-contenido">
+        <h3 style="margin-bottom: 20px;">Confirmar Cantidad</h3>
+        <p id="mensajeConfirmacion"></p>
+        <div class="modal-botones">
+          <button onclick="confirmarGuardarCantidad()">Confirmar</button>
+          <button class="cancelar" onclick="cerrarModalCantidad()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error modal -->
+    <div id="modalError">
+      <div class="modal-contenido">
+        <div id="mensajeError"></div>
+        <div class="modal-botones">
+          <button onclick="document.getElementById('modalError').style.display='none'">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reference to the external JavaScript file -->
+    <script src="js/formulario.js"></script>
+  </body>
+</html>
